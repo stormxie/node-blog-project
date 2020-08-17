@@ -2,9 +2,11 @@ const http = require('http')
 const querystring = require('querystring')
 
 const server = http.createServer((req, res) => {
+    // 获取方法，url,path
     const method = req.method
     const url = req.url
     const path = url.split('?')[0]
+    //解析query
     const query = querystring.parse(url.split('?')[1])
     //设置返回格式为 JSON
     res.setHeader('Content-type', 'application/json')
