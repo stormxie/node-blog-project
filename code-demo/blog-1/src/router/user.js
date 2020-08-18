@@ -4,14 +4,17 @@ const { ErrorModel, SuccessModel } = require("../model/resModel")
 
 const handleUserRouter = (req, res) => {
     const method = req.method
-    const name = req.body.name
-    const password = req.body.password
+
     if (method === "POST" && req.path === "/api/user/login") {
-        const result = loginCheck(name, password)
-        if(result) {
-            return new SuccessModel({})
-        }
-        return new ErrorModel('密码或账号错误')
+        const {username, password} = req.body
+        const result = loginCheck(username, password)
+        return result.then(data => {
+            if (data.username) {
+                return new SuccessModel()
+            } else {
+                return new ErrorModel('登录失败')
+            }
+        })
     }
 }
 

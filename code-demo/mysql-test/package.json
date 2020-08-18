@@ -1,19 +1,15 @@
 {
-  "name": "blog-1",
+  "name": "mysql-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js"
+    "dev": "node ./index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "cross-env": "^7.0.2",
-    "nodemon": "^2.0.4"
-  },
   "dependencies": {
     "mysql": "^2.18.1"
   }
